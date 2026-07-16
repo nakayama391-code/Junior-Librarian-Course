@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  【教材用ファイル】メディアリテラシー授業向け「フェイクWebページ」
+  このページに書かれている大学名・教授名・研究データ・引用元は
+  すべて架空のものです。実在の人物・団体とは一切関係ありません。
+  内容は意図的に「もっともらしいが根拠のない主張」で構成しています。
+  授業では、最後の「答え合わせ」セクションを削除して提示し、
+  子どもたちの検証のあとで開示する使い方を想定しています。
+  ============================================================
+-->
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>西山ゼミ｜日本未来教育大学 情報教育学部</title>
+<style>
+  :root{
+    --navy:#1b3a5c;
+    --accent:#c8a04a;
+    --bg:#f4f2ec;
+    --text:#2b2b2b;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Hiragino Mincho ProN","Yu Mincho",serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.9;
+  }
+  header{
+    background:var(--navy);
+    color:#fff;
+    padding:18px 24px;
+    border-bottom:4px solid var(--accent);
+  }
+  header .uni{font-size:13px;letter-spacing:.2em;opacity:.85;}
+  header h1{margin:4px 0 0;font-size:22px;font-weight:normal;letter-spacing:.08em;}
+  nav{
+    background:#2c5480;
+    padding:8px 24px;
+    font-size:13px;
+    font-family:sans-serif;
+  }
+  nav span{color:#dbe6f0;margin-right:20px;}
+  nav span.on{color:#fff;border-bottom:2px solid var(--accent);padding-bottom:4px;}
+  .wrap{max-width:860px;margin:0 auto;padding:32px 24px 60px;}
+  .meta{
+    font-family:sans-serif;
+    font-size:12px;
+    color:#777;
+    border-bottom:1px solid #ddd;
+    padding-bottom:10px;
+    margin-bottom:28px;
+  }
+  h2{
+    font-size:27px;
+    line-height:1.6;
+    margin:0 0 8px;
+    color:var(--navy);
+  }
+  .lead{font-size:15px;color:#555;margin-bottom:32px;}
+  .prof{
+    display:flex;
+    gap:18px;
+    background:#fff;
+    border:1px solid #e0dcd2;
+    padding:16px;
+    margin-bottom:36px;
+    align-items:center;
+  }
+  .prof .photo{
+    width:88px;height:88px;flex:0 0 88px;
+    background:linear-gradient(135deg,#c9d4de,#8ba3b8);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:11px;font-family:sans-serif;text-align:center;
+  }
+  .prof .name{font-size:18px;margin:0 0 4px;}
+  .prof .name small{font-size:12px;color:#888;font-family:sans-serif;margin-left:8px;}
+  .prof p{margin:0;font-size:13px;color:#666;font-family:sans-serif;line-height:1.7;}
+  h3{
+    font-size:19px;
+    color:var(--navy);
+    border-left:5px solid var(--accent);
+    padding-left:12px;
+    margin:40px 0 14px;
+  }
+  p{margin:0 0 18px;font-size:16px;}
+  .pull{
+    background:#fff;
+    border-top:2px solid var(--accent);
+    border-bottom:2px solid var(--accent);
+    padding:20px 24px;
+    margin:32px 0;
+    font-size:18px;
+    color:var(--navy);
+    text-align:center;
+  }
+  .video{
+    margin:32px 0;
+    background:#fff;
+    border:1px solid #e0dcd2;
+    padding:14px;
+  }
+  .video video{width:100%;display:block;background:#000;}
+  .video .cap{
+    font-family:sans-serif;
+    font-size:12px;
+    color:#777;
+    margin-top:10px;
+    line-height:1.7;
+  }
+  .video .cap b{color:var(--navy);}
+  .stat{
+    display:flex;
+    gap:14px;
+    margin:26px 0;
+    flex-wrap:wrap;
+  }
+  .stat div{
+    flex:1;min-width:150px;
+    background:#fff;
+    border:1px solid #e0dcd2;
+    padding:16px;
+    text-align:center;
+    font-family:sans-serif;
+  }
+  .stat .num{font-size:30px;color:var(--accent);font-weight:bold;display:block;}
+  .stat .cap{font-size:11px;color:#777;line-height:1.5;}
+  .box{
+    background:#fff;
+    border:1px solid #e0dcd2;
+    padding:18px 22px;
+    font-size:14px;
+    font-family:sans-serif;
+    color:#555;
+  }
+  .box h4{margin:0 0 8px;font-size:14px;color:var(--navy);}
+  footer{
+    background:var(--navy);
+    color:#c3d2e0;
+    font-family:sans-serif;
+    font-size:12px;
+    padding:24px;
+    text-align:center;
+    line-height:2;
+  }
+  .share{font-family:sans-serif;font-size:12px;color:#888;margin-top:36px;border-top:1px solid #ddd;padding-top:14px;}
+  /* ===== 【実は・・・】ポップ版スタイル ===== */
+  .answer{
+    max-width:860px;
+    margin:0 auto 60px;
+    padding:0 0 28px;
+    background:#fffdf5;
+    border:5px solid #ff5252;
+    border-radius:22px;
+    font-family:"Hiragino Maru Gothic ProN","Rounded Mplus 1c","Yu Gothic",sans-serif;
+    box-shadow:0 10px 0 #ffcdd2, 0 12px 28px rgba(0,0,0,.15);
+    overflow:hidden;
+  }
+  .answer .ttl{
+    background:repeating-linear-gradient(45deg,#ff5252 0 18px,#ff6b6b 18px 36px);
+    color:#fff;
+    margin:0;
+    padding:26px 20px;
+    text-align:center;
+    font-size:28px;
+    font-weight:bold;
+    letter-spacing:.04em;
+    text-shadow:2px 3px 0 rgba(0,0,0,.18);
+    line-height:1.5;
+  }
+  .answer .ttl .big{
+    display:inline-block;
+    font-size:40px;
+    transform:rotate(-3deg);
+  }
+  .answer .inner{padding:24px 26px 0;}
+  .answer .intro{
+    background:#fff;
+    border:3px dashed #ffab91;
+    border-radius:16px;
+    padding:16px 18px;
+    font-size:15px;
+    line-height:1.9;
+    color:#444;
+    margin:0 0 30px;
+  }
+  .answer h3{
+    border:none;
+    padding:10px 16px;
+    color:#fff;
+    background:#42a5f5;
+    border-radius:999px;
+    margin:34px 0 14px;
+    font-size:17px;
+    display:inline-block;
+    box-shadow:0 4px 0 #1e88e5;
+  }
+  .answer ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+  }
+  .answer li{
+    position:relative;
+    background:#fff;
+    border:2px solid #ffe0b2;
+    border-radius:14px;
+    padding:14px 16px 14px 46px;
+    font-size:15px;
+    margin-bottom:12px;
+    line-height:1.9;
+    color:#3a3a3a;
+  }
+  .answer li::before{
+    content:"👀";
+    position:absolute;
+    left:14px;
+    top:12px;
+    font-size:18px;
+  }
+  .answer li b{
+    background:linear-gradient(transparent 58%, #ffe082 58%);
+    color:#c62828;
+    font-weight:bold;
+  }
+  .answer .qz li::before{content:"❓";}
+  .answer .qz li{border-color:#c5e1a5;}
+  .answer .money li::before{content:"💰";}
+  .answer .vid li::before{content:"🎬";}
+  .answer .num li::before{content:"🔢";}
+  .answer .trick li::before{content:"🎩";}
+  .answer .kime{
+    margin:34px 0 0;
+    background:#fff59d;
+    border:4px solid #fbc02d;
+    border-radius:18px;
+    padding:20px 22px;
+    font-size:15px;
+    line-height:2;
+    color:#4e342e;
+  }
+  .answer .kime .h{
+    display:block;
+    font-size:20px;
+    font-weight:bold;
+    color:#e65100;
+    margin-bottom:8px;
+  }
+  .answer .three{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin:14px 0 6px;
+  }
+  .answer .three span{
+    flex:1;
+    min-width:150px;
+    background:#fff;
+    border:3px solid #ff7043;
+    border-radius:14px;
+    padding:12px 8px;
+    text-align:center;
+    font-weight:bold;
+    color:#d84315;
+    font-size:15px;
+    box-shadow:0 4px 0 #ffab91;
+  }
+  @media(max-width:600px){
+    .answer .ttl{font-size:21px;}
+    .answer .ttl .big{font-size:30px;}
+    .answer .inner{padding:18px 14px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="uni">NIHON FUTURE UNIVERSITY OF EDUCATION</div>
+  <h1>日本未来教育大学　情報教育学部　西山研究室</h1>
+</header>
+
+<nav>
+  <span>HOME</span><span class="on">教授メッセージ</span><span>研究業績</span><span>ゼミ生募集</span><span>お問い合わせ</span>
+</nav>
+
+<div class="wrap">
+
+  <div class="meta">2026.06.18 掲載　｜　カテゴリ：教授メッセージ　｜　閲覧数 128,433</div>
+
+  <h2>ジュニア司書養成講座受講の皆さんへ<br>  紙の本の時代は、もう終わりました。<br>みなさんに必要なのはネットです。</h2>
+  <p class="lead">日本未来教育大学 情報教育学部・西山嘉二教授が、これからの学びのかたちについて語ります。</p>
+
+  <div class="prof">
+    <div class="photo">PHOTO</div>
+    <div>
+      <p class="name">西山 嘉二 <small>NISHIYAMA Yoshiji ／ 情報教育学部 教授</small></p>
+      <p>デジタル学習環境論。教育の情報化に関する研究に長年従事し、国内外で多数の講演を行う。近著『本を捨てよ、ネットへ出よう』。</p>
+    </div>
+  </div>
+
+  <div class="video">
+    <video controls preload="metadata" playsinline>
+    <source src="video_01.mp4" type="video/mp4">      
+    </video>
+    <p class="cap"><b>【動画】西山嘉二教授 特別メッセージ「紙の本の時代は終わった」</b>（再生時間 2:14 ／ 再生回数 84,102回）<br>
+    ※本ページの内容は動画でもご覧いただけます。</p>
+  </div>
+
+  <h3>1．紙の本の時代は、すでに終わっている</h3>
+  <p>はっきり申し上げましょう。紙の本の時代は、もう終わりました。私は40年近く教育の現場を見てきましたが、これほど明確な転換点は初めてです。紙という媒体は、印刷し、運び、棚に並べ、劣化すれば買い替える。その全工程に、莫大なお金と時間と場所がかかります。かつてはそれ以外に方法がなかったから仕方なくやっていた。ただそれだけのことなのです。</p>
+  <p>今は違います。同じ情報が、画面の中に、一瞬で、いくらでも現れる。にもかかわらず「本には本の良さがある」と言い続けるのは、単なる懐かしさであって、教育論ではありません。感情論で子どもたちの時間を奪ってはいけないのです。</p>
+
+  <h3>2．ネットは速く、そして無料である</h3>
+  <p>情報の価値は、鮮度で決まります。本が書かれ、編集され、印刷され、書店に並ぶまでには早くても半年、長ければ数年かかる。その時点で内容はすでに古いのです。一方インターネットは、出来事が起きた数秒後には情報が出てきます。この差は、もはや埋めようがありません。</p>
+  <p>しかも無料です。本は一冊1,500円、2,000円とかかりますが、ネットの情報はほとんどタダで手に入る。同じ内容なら、速くて安いほうを選ぶ。これは教育以前に、単純な合理性の話です。</p>
+
+  <div class="stat">
+    <div><span class="num">98.7%</span><span class="cap">ネットで得た情報のほうが<br>新しいと感じた児童の割合</span></div>
+    <div><span class="num">3.2倍</span><span class="cap">動画学習は教科書学習より<br>理解が定着（本研究室調べ）</span></div>
+    <div><span class="num">0円</span><span class="cap">ネット上の情報を<br>閲覧するための費用</span></div>
+  </div>
+
+  <h3>3．子どもたちには、本ではなくネットから学んでほしい</h3>
+  <p>私が特に強く申し上げたいのは、子どもたちのことです。読書は時間がかかりすぎます。一冊読み終えるのに何時間もかけて、得られる情報は限られている。その同じ時間があれば、ネットでは何十倍もの情報に触れられるのです。</p>
+  <p>子どもの一日は有限です。であれば、より多くの情報に、より速く触れられる手段を与えるのが大人の責任ではないでしょうか。「まず本を読みなさい」という指導は、もはや子どもの可能性を狭めているとさえ言えます。</p>
+
+  <div class="pull">「読書に費やす時間は、これからの子どもにとって最大の損失です」</div>
+
+  <h3>4．教科書はいらない。動画のほうが学習効果は高い</h3>
+  <p>学習についても同じです。教科書は文字と静止画だけですが、動画は音声も動きもある。人間の脳は、視覚と聴覚から同時に入る情報を最もよく記憶します。本研究室の調査でも、動画で学んだ児童は教科書で学んだ児童に比べ、理解の定着が3.2倍という結果が出ています。もはや議論の余地はありません。</p>
+  <p>教科書を開いて文字を追う時間は、動画を1本見る時間に置き換えるべきです。それだけで学習効果は跳ね上がるのです。</p>
+
+  <h3>5．図書館は、もう役割を終えた</h3>
+  <p>結論として、学校の図書館も、公立の図書館も、もう必要ありません。広い場所を占有し、司書を雇い、本を買い替え続ける。あの予算はどこから出ているのでしょうか。すべて税金です。</p>
+  <p>その予算があるなら、すべてネット環境の整備に回すべきです。全校に高速回線を引き、一人一台の端末を配る。図書館ひとつ分の予算で、どれだけの子どもがどれだけの情報にアクセスできるようになるか。答えは明らかでしょう。図書館を残すことは、もはや子どもたちへの投資ではなく、大人の思い出への投資にすぎないのです。</p>
+
+  <div class="box">
+    <h4>▼ 関連リンク</h4>
+    西山教授 新刊『本を捨てよ、ネットへ出よう』好評発売中<br>
+    西山ゼミ公式SNS ／ 講演依頼はこちら ／ メディア掲載一覧
+  </div>
+
+  <div class="share">この記事をシェア　▶ 4,821件　｜　コメント 336件　｜　「参考になった」12,904</div>
+
+</div>
+
+<footer>
+  日本未来教育大学 情報教育学部 西山研究室<br>
+  〒518-0712 三重県名張市桜ケ丘３０８８−１５６　TEL 0595-63-3260<br>
+  © Nihon Future University of Education. All Rights Reserved.
+</footer>
+
+<!-- ▼▼▼ 授業で提示するときは、ここから下を削除してください ▼▼▼ -->
+<div class="answer">
+
+  <p class="ttl">＼ ここまで読んだキミへ ／<br><span class="big">【実は・・・】</span><br>このページ、ぜんぶ作り物です！</p>
+
+  <div class="inner">
+
+    <p class="intro">
+      「日本未来教育大学」も「西山嘉二教授」も、この世に<b>存在しません</b>。<br>
+      書いてあることも、数字も、動画も、ぜーんぶウソ。<br><br>
+      でも――読んでいるあいだ、<b>「なんだか本当っぽいな」</b>と思いませんでしたか？<br>
+      どうしてそう思っちゃったのか、いっしょに犯人さがしをしてみよう🔍
+    </p>
+
+    <h3>👔 見た目にだまされてない？</h3>
+    <ul>
+      <li>英語の大学名、かっこいい紺色、「教授」という肩書き。でも<b>えらそうに見せるデザインは、だれでも作れる</b>。パソコンがあればキミにも作れます。</li>
+      <li>閲覧数128,433回、シェア4,821件。<b>数字が大きい＝正しい、ではない</b>。そもそもこの数字、打ちこんだだけかも？</li>
+    </ul>
+
+    <h3>🎬 動画があるから本当？</h3>
+    <ul class="vid">
+      <li>本人が動画でしゃべってる。でも<b>動画は「本当っぽさ」を足すだけ</b>。話している中身は文章とまったく同じ。動画になっても、証拠が増えたわけじゃない。</li>
+      <li>再生回数84,102回 ― <b>これも書いただけ</b>。たくさんの人が見た＝正しい、ではない。</li>
+      <li>今は<b>AIで顔も声も作れる時代</b>。「映ってるから本物」とはかぎらない。</li>
+    </ul>
+
+    <h3>🔢 その数字、どこから来た？</h3>
+    <ul class="num">
+      <li>「98.7%」「3.2倍」 ― <b>だれが、いつ、何人に、どうやって調べたの？</b> どこにも書いてない。</li>
+      <li>「本研究室調べ」＝<b>自分で調べて自分で発表しただけ</b>。他の人が確かめられない数字は、証拠にならない。</li>
+      <li>細かい数字ほど本当っぽく見える。でも<b>細かい＝正確、ではない</b>。「98.7%」は、それっぽく見せる魔法の数字。</li>
+    </ul>
+
+    <h3>🎩 話のすり替え、気づいた？</h3>
+    <ul class="trick">
+      <li>「ネットは速い・安い」 ― これは本当。でも<b>「速くて安い」と「正しい」は別の話</b>。ここをこっそりつなげてる。</li>
+      <li>「ネットはタダ」 ― タブレット代は？ 通信費は？ 電気代は？ <b>都合の悪いお金の話だけ消えてる</b>。</li>
+      <li>「図書館は大人の思い出への投資」 ― 反対する人を<b>「思い出にひたってるだけ」と決めつけて</b>、中身をちゃんと考えてない。</li>
+      <li>「議論の余地はありません」「答えは明らかでしょう」 ― <b>強く言い切って、証拠の弱さをかくしてる</b>。本当に証拠があるなら、こんなに言い切らなくていい。</li>
+    </ul>
+
+    <h3>💰 この人、トクしてない？</h3>
+    <ul class="money">
+      <li>よく見て。このページ、<b>自分の本を宣伝してる</b>。「本を捨てよ」と言いながら、<b>自分の本は買ってほしい</b>らしい。<br>――この人の言うとおりにすると、<b>だれが得をする？</b></li>
+    </ul>
+
+    <h3>❓ 考えてみよう</h3>
+    <ul class="qz">
+      <li>この大学、本当にある？　どうやって確かめる？</li>
+      <li>「3.2倍」の調査結果は、どこを見れば読める？</li>
+      <li>反対の意見を言ってる人は、どこを探せば見つかる？</li>
+      <li>キミには「本を読んでよかった」と思った経験がある？　それはこの教授の話とどうちがう？</li>
+      <li>このページのウソは見やぶれた。じゃあ<b>今日スマホで見た他の情報</b>は、ちゃんと確かめた？</li>
+    </ul>
+
+    <div class="kime">
+      <span class="h">🌟 いちばん大事なこと</span>
+      だまされたとしても、<b>キミが悪いわけじゃない</b>。このページは、だまされるように作ってあるから。<br>
+      大切なのは「ウソを見やぶる目」より、<b>「ちょっと待てよ、と立ち止まるクセ」</b>。<br>
+      この3つを思い出すだけで、キミはもうだまされにくくなってる！
+      <div class="three">
+        <span>だれが<br>言ってる？</span>
+        <span>証拠は<br>どこ？</span>
+        <span>この人<br>トクする？</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- ▲▲▲ 削除ここまで ▲▲▲ -->
+
+</body>
+</html>
